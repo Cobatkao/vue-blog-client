@@ -1,7 +1,9 @@
 import request from '@/helpers/request'
+import auth from '@/api/auth.js'
 
-// 全局对象，方便console调试
+// 暴露为全局对象，方便console调试
 window.request = request
+window.auth = auth
 
 export default {
   data () {
