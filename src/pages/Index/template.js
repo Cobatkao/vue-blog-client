@@ -1,9 +1,11 @@
 import request from '@/helpers/request'
 import auth from '@/api/auth.js'
+import blog from '@/api/blog.js'
 
 // 暴露为全局对象，方便console调试
 window.request = request
 window.auth = auth
+window.blog = blog
 
 export default {
   data () {
