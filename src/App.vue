@@ -10,6 +10,7 @@
 
 <script>
 
+//引入header，footer组件
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
