@@ -12,4 +12,4 @@
 </template>
 
 <script src="./template.js"></script>
-<style scoped lang="less" src="./template.less"></style>
+<style src="../Login/template.less" lang="less"></style>

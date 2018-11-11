@@ -1,6 +1,6 @@
 @import "../../assets/base.less";
 
-#my {
+#my, #user {
   .user-info {
     display: grid;
     grid: auto / 80px 1fr;
@@ -30,8 +30,9 @@
 
     .date {
       grid-column: 1 / 2;
-      grid-row: 1 / span 2;
+      grid-row: 1 / span 3;
       justify-self: center;
+      align-self: stretch;
       text-align: center;
 
       span {
@@ -53,11 +54,13 @@
       grid-column: 2;
       grid-row: 2;
       margin-top: 0;
+      align-self: flex-end;
     }
 
     .actions {
       grid-column: 2;
       grid-row: 3;
+      align-self: flex-end;
       font-size: 12px;
 
       a {
@@ -65,5 +68,17 @@
         text-decoration: none;
       }
     }
+  }
+}
+
+#user .item {
+  grid: auto auto / 80px 1fr;
+
+  .date {
+    grid-row: 1 / span 2;
+  }
+
+  h3 {
+    align-self: center;
   }
 }
