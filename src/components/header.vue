@@ -5,24 +5,45 @@
       <h1>Let's Share</h1>
       <p>精品博客汇聚</p>
       <div class="btns">
-        <el-button>立即登录</el-button>
-        <el-button>注册账号</el-button>
+        <router-link to="/login"><el-button>立即登录</el-button></router-link>
+        <router-link to="/register"><el-button>注册账号</el-button></router-link>
       </div>
     </template>
     <!--已登录-->
     <template v-if="isLogin">
         <h1>Let's Share</h1>
         <i class="edit el-icon-edit-outline"></i>
-        <img class="avatar" src="http://pi0e6bg21.bkt.clouddn.com/6d41b79c5fad9f2361bc1e12c4990699_hd.jpg" alt="avatar">
+        <div class="user">
+          <img class="avatar" :src="user.avatar" alt="user.username" :title="user.username">
+          <ul>
+            <li><router-link to="my">我的主页</router-link></li>
+            <li><a href="#" @click="onLogout">注销登录</a></li>
+          </ul>
+        </div>
     </template> 
   </header>
 </template>
 
 <script>
+  import auth from '@/api/auth'
+  window.auth = auth
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
-    data () {
-      return {
-        isLogin: false,
+    data () {                                                                             
+      return {}
+    },
+    computed: {
+      ...mapGetters(['isLogin', 'user'])
+    },
+    created() {
+      this.checkLogin()
+    },
+    methods: {
+      ...mapActions(['checkLogin', 'logout']),
+
+      onLogout() {
+        this.logout()
       }
     }
   }
@@ -78,6 +99,46 @@ header.Login {
     border: 1px solid #fff;
     border-radius: 50%;
     margin-left: 15px;
+  }
+
+  .user {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 51px;
+      list-style: none;
+      border: 1px solid #eaeaea;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+
+      li:first-child {
+        border-bottom: 1px solid #eaeaea;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 12px;
+        display: block;
+        padding: 5px 10px;
+        white-space: nowrap;
+
+        &:hover {
+          background: #eaeaea;
+        }
+      }
+    }
+
+    &:hover ul {
+      display: block;
+    }
+
   }
 }
 </style>

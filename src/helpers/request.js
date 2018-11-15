@@ -1,5 +1,5 @@
 import axios from 'axios'
- // 按需引入element-ui中的message组件
+// 按需引入element-ui中的message组件
 import { Message } from 'element-ui'
 
 
@@ -22,10 +22,12 @@ export default function request(url, type = 'GET', data = {}) {
       // status是成功的约定
       if(res.data.status === 'ok') {
         resolve(res.data)
+        console.log(res.data)
       } else {
         // status = fail
         Message.error(res.data.msg)
         reject(res.data)
+        console.log(res.data)
       }
     }).catch(err => {
       Message.error('网络异常')
