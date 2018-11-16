@@ -105,12 +105,14 @@ header.Login {
     position: relative;
     display: flex;
     align-items: center;
+    padding-bottom: 9px;
+    padding-top: 9px;
 
     ul {
       display: none;
       position: absolute;
       right: 0;
-      top: 51px;
+      top: 60px;
       list-style: none;
       border: 1px solid #eaeaea;
       margin: 0;
