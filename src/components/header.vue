@@ -3,7 +3,7 @@
     <!--未登录-->
     <template v-if="!isLogin">
       <h1>Let's Share</h1>
-      <p>精品博客汇聚</p>
+      <p>Did you get what you wanted this life</p>
       <div class="btns">
         <router-link to="/login"><el-button>立即登录</el-button></router-link>
         <router-link to="/register"><el-button>注册账号</el-button></router-link>
@@ -43,7 +43,9 @@
       ...mapActions(['checkLogin', 'logout']),
 
       onLogout() {
-        this.logout()
+        this.logout().then(() => {
+          this.$router.push({path: '/'})
+        })
       }
     }
   }
@@ -58,16 +60,18 @@ header.noLogin {
   background: @bgColor;
   display: grid;
   justify-items: center;
+  box-shadow: 0 5px 4px -4px black;
 
   h1 {
     color: #fff;
-    font-size: 40px;
-    margin: 60px 0 0 0;
+    font-size: 64px;
+    margin: 100px 0 0 0;
     text-transform: uppercase;
   }
 
   p {
-    margin: 15px 0 0 0;
+    font-size: 20px;
+    margin: 15px 0 15px 0;
     color: #fff;
   }
 
@@ -80,6 +84,7 @@ header.Login {
   display: flex;
   align-items: center;
   background: @bgColor;
+  box-shadow: 0 5px 4px -4px black;
 
   h1 {
     color: #fff;

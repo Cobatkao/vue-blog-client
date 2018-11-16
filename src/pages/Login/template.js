@@ -15,7 +15,7 @@ export default {
       this.login({username: this.username, password: this.password})
         .then(() => {
           // 跳至首页
-          this.$router.push({path: '/'})
+          this.$router.push({path: this.$route.query.redirect || '/'})
         })
     },
   }
