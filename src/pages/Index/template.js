@@ -9,7 +9,7 @@ export default {
     }
   },
   created () {
-    this.page = parseInt(this.$route.query.page)
+    this.page = parseInt(this.$route.query.page) || 1
     console.log(this.page)
     blog.getIndexBlogs({ page: this.page }).then(res => {
       console.log(res)

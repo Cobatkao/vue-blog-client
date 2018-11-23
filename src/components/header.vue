@@ -28,11 +28,19 @@
                     <img class="avatar" :src="user.avatar" alt="user.username" :title="user.username">
                     <ul>
                         <li>
-                            <router-link to="my">我的主页</router-link>
+                            <router-link to="/my">我的主页</router-link>
                         </li>
-                        <li><a href="#" @click="onLogout">注销登录</a></li>
+                        <li>
+                            <a href="#" @click.prevent="toUserPage">我的发布</a>
+                        </li>
+                        <li>
+                            <a href="#" @click.prevent="onLogout">注销登录</a>
+                        </li>
                     </ul>
                 </div>
+                <p v-if="isLogin">
+                  {{ user.username }}
+                </p>
             </div>
         </template>
     </header>
@@ -64,7 +72,13 @@
                         path: '/'
                     })
                 })
-            }
+            },
+
+            // toUserPage() {
+            //     this.$router.push({
+            //         path: 'user', params: {userId: this.user.id}
+            //     })
+            // }
         }
     }
 
@@ -124,20 +138,13 @@
         .rt {
             display: flex;
             align-items: center;
-        }
 
-        .edit {
+            .edit {
             color: #fff;
             font-size: 42px;
         }
 
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #fff;
-            border-radius: 50%;
-            margin-left: 15px;
-        }
+        
 
         .user {
             position: relative;
@@ -146,16 +153,24 @@
             padding-bottom: 9px;
             padding-top: 9px;
 
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                margin-left: 15px;
+            }
+
             ul {
                 display: none;
                 position: absolute;
                 right: 0;
-                top: 60px;
+                top: 63px;
                 list-style: none;
                 margin: 0;
                 padding: 0;
-                background-color: #dedfe1;
-                box-shadow: 0 0 1px 1px #dedfe1;
+                background-color: #f5f5f5;
+                box-shadow: 0 0 1px 1px #f5f5f5;
                 border-radius: 2px;
 
                 &::before {
@@ -163,13 +178,14 @@
                     color: #333;
                     position: absolute;
                     right: 11px;
-                    top: -9px;
+                    top: -12px;
                     height: 0;
                     width: 0;
-                    border-bottom: 10px solid #dedfe1;
+                    border-bottom: 12px solid #f5f5f5;
                     border-left: 10px solid transparent;
                     border-right: 10px solid transparent;
                     z-index: 1;
+                    filter: drop-shadow(0 0 1px #f5f5f5);
                 }
 
                 li:first-child {
@@ -185,7 +201,7 @@
                     white-space: nowrap;
 
                     &:hover {
-                        background: #fff;
+                        background: #eaeaea;
                     }
                 }
             }
@@ -193,8 +209,16 @@
             &:hover ul {
                 display: block;
             }
+          }
 
+          p {
+            color: #fff;
+            margin-left: 10px;
+            font-size: 24px;
+          }
         }
+
+
     }
 
 </style>
