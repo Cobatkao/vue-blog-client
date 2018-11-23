@@ -4,9 +4,9 @@
       <router-link class="item" v-for="blog in blogs" :key="blog.id" :to="`/detail/${blog.id}`">
         <figure class="avatar">
           <img :src="blog.user.avatar" :alt="blog.user.username">
-          <figcaption>{{ blog.user.name }}</figcaption>
+          <figcaption>{{ blog.user.username }}</figcaption>
         </figure>
-        <h3>{{ blog.title }} <span> {{ blog.createdAt }}</span></h3>
+        <h3><strong>{{ blog.title }}</strong>   •  <span> {{ DateBeautify(blog.createdAt) }}</span></h3>
         <p>{{ blog.description }}</p>
       </router-link>
     </section>
