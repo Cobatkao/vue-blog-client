@@ -13,8 +13,9 @@
     <section class="pagination">
        <el-pagination
         layout="prev, pager, next"
+        :current-page.sync = "page"
         :total="total"
-        @current-change="onPageChange"  
+        @current-change="onPageChange"
         >
       </el-pagination>
     </section>

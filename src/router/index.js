@@ -16,11 +16,11 @@ const router = new Router({
       component: () => import('@/pages/Login/template.vue')
     },
     {
-      path: '/detail:blogId',
+      path: '/detail/:blogId',
       component: () => import('@/pages/Detail/template.vue')
     },
     {
-      path: '/edit:blogId',
+      path: '/edit/:blogId',
       component: () => import('@/pages/Edit/template.vue'),
       meta: { requiresAuth: true }
     },
@@ -30,7 +30,7 @@ const router = new Router({
       meta: { requiresAuth: true }
     },
     {
-      path: '/user/userId',
+      path: '/user/:userId',
       component: () => import('@/pages/User/template.vue'),
     },
     {
