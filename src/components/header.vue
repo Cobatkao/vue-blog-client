@@ -31,7 +31,7 @@
                             <router-link to="/my">我的主页</router-link>
                         </li>
                         <li>
-                            <a href="#" @click.prevent="toUserPage">我的发布</a>
+                            <a href="#" to="`/user/${user.id}`">我的发布</a>
                         </li>
                         <li>
                             <a href="#" @click.prevent="onLogout">注销登录</a>
