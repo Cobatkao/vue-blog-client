@@ -1,5 +1,4 @@
 //封装认证相关api的底层数据
-
 import request from '@/helpers/request.js'
 
 const URL = {

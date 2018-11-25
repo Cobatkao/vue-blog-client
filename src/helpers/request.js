@@ -18,7 +18,7 @@ export default function request(url, type = 'GET', data = {}) {
     } else {
       option.data = data
     }
-    axios(option).then(res => { 
+    axios(option).then(res => {
       // status是成功的约定
       if(res.data.status === 'ok') {
         resolve(res.data)

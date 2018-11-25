@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
-    "upload": "npm run build; cd dist; git init -y; git add .; git commit -am \"init\"; git remote add origin git@github.com:Cobatkao/vue-blog-preview.git; git push -f origin master"
+    "upload": "npm run build; cd dist; git init; git add .; git commit -am \"init\"; git remote add origin git@github.com:Cobatkao/vue-blog-preview.git; git push -f origin master;"
   },
   "dependencies": {
     "axios": "^0.18.0",
