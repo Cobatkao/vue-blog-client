@@ -7,8 +7,8 @@ Vue.use(Vuex)
 
 //创建全局vuex对象，暴露供全局vue使用
 export default new Vuex.Store({
-  modules: {
-    auth,
-    blog
-  }
+    modules: {
+        auth,
+        blog
+    }
 })

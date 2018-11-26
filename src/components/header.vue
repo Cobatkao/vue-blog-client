@@ -60,6 +60,7 @@
         computed: {
             ...mapGetters(['isLogin', 'user'])
         },
+        //在页面没有渲染之前检查用户是否登录
         created() {
             this.checkLogin()
         },
